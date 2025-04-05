@@ -32,6 +32,15 @@
 - [**mise**](https://mise.jdx.dev/): Manages consistent language and tool versions
 - [**pipx**](https://pipx.pypa.io/stable/): Manages isolated Python package environments.
 
+## Distribution Dependencies
+
+- [**cocogitto**](https://docs.cocogitto.io/): The conventional commit toolbox
+- [**pre-commit**](https://pre-commit.com/): A framework for managing and maintaining multi-language pre-commit hooks
+- [**editorconfig**](https://editorconfig.org/): Keeps code style consistent across editors
+- [**Visual Studio Code**](https://code.visualstudio.com/): A lightweight, open-source code editor
+- [**GitHub**](https://github.com/): Git hosting platform
+- [**GitHub Codespaces**](https://github.com/features/codespaces): Cloud-based development environment
+
 ## Repository Structure
 
 The repository is structured as follows:
