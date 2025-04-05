@@ -5,31 +5,7 @@ disable_backends = ["asdf"]
 _.path = ["{{config_root}}/bin"]
 MISE_ENV="dev"
 
-[tasks.hygiene]
-description = "Code hygiene (pre-commit hooks)"
-run = ["pre-commit run --all-files"]
-
-[tasks.install]
-depends = ["install-pre-commit-hooks"]
-description = "Install dependencies"
-
-[tasks.install-pre-commit-hooks]
-description = "Install pre-commit hooks"
-run = [
-    "pre-commit install",
-    "pre-commit install --hook-type pre-commit",
-    "pre-commit install --hook-type commit-msg",
-]
-
-[tasks.update-pre-commit]
-description = "Update pre-commit hooks"
-run = ["pre-commit autoupdate"]
-
 [tools]
 "usage"= "2.0.7"
-"python" = "3.13"
-"pipx:pre-commit" = "4.2.0"
 "aqua:sigstore/cosign" = "2.4.3"
 "ubi:slsa-framework/slsa-verifier" = "2.7.0"
-"aqua:aquasecurity/trivy" = "0.61.0"
-"ubi:koalaman/shellcheck" = "0.10.0"

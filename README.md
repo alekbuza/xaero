@@ -29,16 +29,26 @@
 ## Core Dependencies
 
 - [**git**](https://git-scm.com/): Version control for code history
+- [**editorconfig**](https://editorconfig.org/): Keeps code style consistent across editors
 - [**mise**](https://mise.jdx.dev/): Manages consistent language and tool versions
+- [**python**](https://www.python.org/): Python is a high-level programming language known for its simplicity and readability
 - [**pipx**](https://pipx.pypa.io/stable/): Manages isolated Python package environments.
 
 ## Distribution Dependencies
 
-- [**cocogitto**](https://docs.cocogitto.io/): The conventional commit toolbox
+- [**usage**](https://usage.jdx.dev/): A specification for CLIs
+- [**cosign**](https://github.com/sigstore/cosign): Code signing and transparency for containers and binaries
+- [**slsa-verifier**](https://github.com/slsa-framework/slsa-verifier): Verify provenance from SLSA compliant builders
 - [**pre-commit**](https://pre-commit.com/): A framework for managing and maintaining multi-language pre-commit hooks
-- [**editorconfig**](https://editorconfig.org/): Keeps code style consistent across editors
-- [**Visual Studio Code**](https://code.visualstudio.com/): A lightweight, open-source code editor
+- [**shellcheck**](https://github.com/koalaman/shellcheck): ShellCheck, a static analysis tool for shell scripts
+- [**cocogitto**](https://docs.cocogitto.io/): The conventional commit toolbox
+- [**trivy**](https://trivy.dev/latest/): Find vulnerabilities, misconfigurations, secrets, SBOM in containers, Kubernetes, code repositories, clouds and more
+
+## GitHub Dependencies
+
 - [**GitHub**](https://github.com/): Git hosting platform
+- [**CLI**](https://cli.github.com/): GitHub’s official command line tool
+- [**Visual Studio Code**](https://code.visualstudio.com/): A lightweight, open-source code editor
 - [**GitHub Codespaces**](https://github.com/features/codespaces): Cloud-based development environment
 
 ## Repository Structure
@@ -51,6 +61,7 @@ The repository is structured as follows:
 ├── .github/                     # GitHub specific configurations
 ├── .local/                      # Local stuff (not trackable by git)
 ├── .vscode/                     # VSCode "workspace" settings as well as debugging and task configurations
+├── assets/                      # Static resources
 ├── bin/                         # Stands for "binaries" and contains certain fundamental utilities
 ├── doc/                         # Documentation and user manual
 └── src/                         # Source code
