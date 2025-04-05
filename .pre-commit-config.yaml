@@ -1,0 +1,41 @@
+---
+repos:
+  # General Hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-symlinks
+      - id: forbid-submodules
+      - id: forbid-new-submodules
+  # YAML Hooks
+  - repo: https://github.com/google/yamlfmt.git
+    rev: v0.16.0
+    hooks:
+      - id: yamlfmt
+        args: ['-conf', './.config/yamlfmt.yaml']
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.37.0
+    hooks:
+      - id: yamllint
+        args: ['--strict', '-c', './.config/yamllint.yaml']
+  # Shell Hooks
+  - repo: local
+    hooks:
+      - name: shellcheck
+        id: shellcheck
+        description: Test shell scripts with shellcheck
+        entry: shellcheck
+        language: python
+        types: [shell]
+        require_serial: true
+  # Git Hooks
+  - repo: https://github.com/compilerla/conventional-pre-commit.git
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args: []

@@ -1,0 +1,40 @@
+{
+  "search.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.venv": true
+  },
+  "files.watcherExclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.venv": true
+  },
+  "editor.insertSpaces": true,
+  "mise.configureExtensionsAutomatically": false,
+  "terminal.integrated.profiles.osx": {
+    "osx-zsh": {
+      "id": "osx-zsh",
+      "path": "zsh",
+      "env": {
+        "PATH": "${env:HOME}/.local/share/mise/shims:/usr/local/bin:${env:PATH}"
+      },
+      "extensionIdentifier": "osx",
+      "icon": "terminal",
+      "title": "Zsh with mise"
+    }
+  },
+  "terminal.integrated.profiles.linux": {
+    "linux-bash": {
+      "id": "linux-bash",
+      "path": "bash",
+      "env": {
+        "PATH": "${env:HOME}/.local/share/mise/shims:/usr/local/bin:${env:PATH}"
+      },
+      "extensionIdentifier": "linux",
+      "icon": "terminal-bash",
+      "title": "Bash with mise"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "osx-zsh",
+  "terminal.integrated.defaultProfile.linux": "linux-bash"
+}

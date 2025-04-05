@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "ms-vscode.remote-repositories",
+    "ms-azuretools.vscode-docker",
+    "vscode-icons-team.vscode-icons",
+    "github.codespaces",
+    "github.vscode-github-actions",
+    "eamodio.gitlens",
+    "tamasfe.even-better-toml",
+    "hverlin.mise-vscode",
+    "editorconfig.editorconfig"
+  ]
+}

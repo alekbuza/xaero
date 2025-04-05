@@ -1,0 +1,6 @@
+[env]
+MISE_ENV="dev"
+
+[tools]
+"aqua:cli/cli" = "2.69.0"
+"aqua:cocogitto/cocogitto" = "6.3.0"

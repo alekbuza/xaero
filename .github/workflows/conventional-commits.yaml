@@ -1,0 +1,17 @@
+---
+name: conventional-commits
+on: [push] # yamllint disable-line rule:truthy
+jobs:
+  cog_check_job:
+    runs-on: ubuntu-latest
+    name: check conventional commit compliance
+    steps:
+      - uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+      - name: Conventional commits check
+        uses: cocogitto/cocogitto-action@v3
+        with:
+          release: true
+          git-user: 'Cocogitto'
+          git-user-email: 'bot@cocogitto.io'

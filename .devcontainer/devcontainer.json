@@ -1,0 +1,26 @@
+{
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "name": "alekbuza/xaero",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode-remote.vscode-remote-extensionpack",
+        "ms-vscode.remote-repositories",
+        "ms-azuretools.vscode-docker",
+        "vscode-icons-team.vscode-icons",
+        "github.codespaces",
+        "github.vscode-github-actions",
+        "eamodio.gitlens",
+        "tamasfe.even-better-toml",
+        "hverlin.mise-vscode",
+        "editorconfig.editorconfig"
+      ]
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create-command.sh"
+}
