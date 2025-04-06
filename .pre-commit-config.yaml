@@ -32,6 +32,16 @@ repos:
         language: python
         types: [shell]
         require_serial: true
+  # Security Hooks
+  - repo: local
+    hooks:
+      - name: trivy-filesystem
+        id: trivy-filesystem
+        description: Trivy Filesystem - Repository scan
+        entry: trivy filesystem . --config .config/trivy.yaml
+        language: system
+        types: [file]
+        pass_filenames: false
   # Git Hooks
   - repo: https://github.com/compilerla/conventional-pre-commit.git
     rev: v4.0.0

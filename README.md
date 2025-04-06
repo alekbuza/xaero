@@ -15,6 +15,8 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/alekbuza/xaero)
 
+[![ci](https://github.com/alekbuza/xaero/actions/workflows/conventional-commits.yaml/badge.svg)](https://github.com/alekbuza/xaero/actions/workflows/conventional-commits.yaml)
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -26,16 +28,16 @@
 
 `xaero` is the invisible backbone of your monorepo - a *meta-structure* that enforces clarity, consistency, and automation across projects and teams. It's designed to seamlessly integrate with popular monorepo tools like `bazel`, `nx`, `turborepo`, `rush`, and more.
 
-## Core Dependencies
+## System Dependencies
 
 - [**git**](https://git-scm.com/): Version control for code history
-- [**editorconfig**](https://editorconfig.org/): Keeps code style consistent across editors
 - [**mise**](https://mise.jdx.dev/): Manages consistent language and tool versions
 - [**python**](https://www.python.org/): Python is a high-level programming language known for its simplicity and readability
-- [**pipx**](https://pipx.pypa.io/stable/): Manages isolated Python package environments.
+- [**pipx**](https://pipx.pypa.io/stable/): Manages isolated Python package environments
 
 ## Distribution Dependencies
 
+- [**editorconfig**](https://editorconfig.org/): Keeps code style consistent across editors
 - [**usage**](https://usage.jdx.dev/): A specification for CLIs
 - [**cosign**](https://github.com/sigstore/cosign): Code signing and transparency for containers and binaries
 - [**slsa-verifier**](https://github.com/slsa-framework/slsa-verifier): Verify provenance from SLSA compliant builders

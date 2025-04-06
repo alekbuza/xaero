@@ -6,10 +6,10 @@ description = "Code hygiene (pre-commit hooks)"
 run = ["pre-commit run --all-files"]
 
 [tasks.install]
-depends = ["install-pre-commit-hooks"]
+depends = ["pre-commit:install"]
 description = "Install dependencies"
 
-[tasks.install-pre-commit-hooks]
+[tasks."pre-commit:install"]
 description = "Install pre-commit hooks"
 run = [
     "pre-commit install",
@@ -17,8 +17,8 @@ run = [
     "pre-commit install --hook-type commit-msg",
 ]
 
-[tasks.update-pre-commit]
-description = "Update pre-commit hooks"
+[tasks."pre-commit:autoupdate"]
+description = "Auto update pre-commit hooks"
 run = ["pre-commit autoupdate"]
 
 [tools]
