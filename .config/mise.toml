@@ -1,11 +1,12 @@
 [settings]
 disable_backends = ["asdf"]
 
-[env]
-_.path = ["{{config_root}}/bin"]
-MISE_ENV="dev"
-
 [tools]
+"python" = "3.13"
 "usage"= "2.0.7"
 "aqua:sigstore/cosign" = "2.4.3"
 "ubi:slsa-framework/slsa-verifier" = "2.7.0"
+"pipx:pre-commit" = "4.2.0"
+"ubi:koalaman/shellcheck" = "0.10.0"
+"aqua:cocogitto/cocogitto" = "6.3.0"
+"aqua:aquasecurity/trivy" = "0.61.0"

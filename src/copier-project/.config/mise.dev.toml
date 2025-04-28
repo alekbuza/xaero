@@ -1,7 +1,4 @@
 [env]
-_.path = [
-  "{{config_root}}/bin"
-]
 
 [tasks.hygiene]
 description = "Code hygiene (pre-commit hooks)"
@@ -24,6 +21,8 @@ description = "Auto update pre-commit hooks"
 run = ["pre-commit autoupdate"]
 
 [tools]
-"pipx:copier" = "9.7.1"
-"aqua:cli/cli" = "2.69.0"
-
+"python" = "3.13"
+"pipx:pre-commit" = "4.2.0"
+"ubi:koalaman/shellcheck" = "0.10.0"
+"aqua:cocogitto/cocogitto" = "6.3.0"
+"aqua:aquasecurity/trivy" = "0.61.0"
