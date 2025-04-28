@@ -1,0 +1,8 @@
+---
+quiet: false
+debug: false
+timeout: 10m
+exit-code: 1
+scan:
+  skip-dirs:
+    - .local
