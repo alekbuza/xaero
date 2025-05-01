@@ -17,7 +17,8 @@
 Thumbs.db
 
 # Temporary & local files
-.local/*
+.local/
+tmp/
 
 # Credentials
 .config/aws/credentials

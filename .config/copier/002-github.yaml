@@ -1,0 +1,23 @@
+---
+use_github:
+  type: bool
+  help: github - Use GitHub?
+github_repository_name:
+  type: str
+  help: github - Repository name
+  when: "{{ use_github }}"
+github_owner:
+  type: str
+  help: github - Owner
+  when: "{{ use_github }}"
+github_codeowners:
+  type: str
+  help: github - CODEOWNERS
+  multiline: true
+  default: "*    {{ github_owner }}"
+  when: "{{ use_github }}"
+use_github_codespaces:
+  type: bool
+  help: github:codespaces - Use GitHub Codespaces?
+  default: false
+  when: "{{ use_github }}"

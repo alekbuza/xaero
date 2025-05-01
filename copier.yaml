@@ -1,30 +1,17 @@
 ---
-_subdirectory: "{{ project_template }}"
-project_template:
-  type: str
-  choices:
-    - src/copier/base
-project_name:
-  type: str
-  help: Project name
-project_short_description:
-  type: str
-  help: Project short description
-project_description:
-  type: str
-  help: Project description
-use_github:
-  type: bool
-  help: Use GitHub?
-use_github_codespaces:
-  type: bool
-  help: Use GitHub Codespaces?
-github_repository_name:
-  type: str
-  help: GitHub repository name
-github_owner:
-  type: str
-  help: GitHub Owner
-github_code_owner:
-  type: str
-  help: GitHub Initial CODEOWNER
+_subdirectory: "src/copier"
+---
+!include ".config/copier/001-project.yaml"
+---
+!include ".config/copier/002-github.yaml"
+---
+!include ".config/copier/003-cocogitto.yaml"
+---
+!include ".config/copier/004-pre-commit.yaml"
+---
+_skip_if_exists:
+    - .config/*
+    - bin/*
+    - doc/*
+    - .editorconfig
+    - .pre-commit-config.yaml

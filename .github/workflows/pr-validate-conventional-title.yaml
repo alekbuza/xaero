@@ -1,0 +1,14 @@
+---
+name: pr-validate-conventional-title
+on: # yamllint disable-line rule:truthy
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+jobs:
+  validate-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conventional PR Title Validation
+        uses: ytanikin/pr-conventional-commits@1.4.1 # https://github.com/ytanikin/pr-conventional-commits
+        with:
+          task_types: '["build","chore","ci","docs","feat","fix","perf","refactor","revert","style","test"]'
+          add_label: 'false'

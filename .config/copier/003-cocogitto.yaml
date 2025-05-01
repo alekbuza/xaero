@@ -1,0 +1,37 @@
+---
+use_cocogitto:
+  type: bool
+  help: cocogitto - Use Cocogitto?
+cocogitto_changelog_path:
+  type: str
+  help: cocogitto:changelog - Path
+  default: CHANGELOG.md
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_template:
+  type: str
+  help: cocogitto:changelog - Template
+  default: remote
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_remote:
+  type: str
+  help: cocogitto:changelog - Remote
+  default: github.com
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_repository:
+  type: str
+  help: cocogitto:changelog - Repository
+  default: "{{ github_repository_name }}"
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_owner:
+  type: str
+  help: cocogitto:changelog - Owner
+  default: "{{ github_owner }}"
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_authors:
+  type: yaml
+  help: cocogitto:changelog - Authors
+  multiline: true
+  default:
+    - username: "alekbuza"
+      signature: "Aleksandar Buza"
+  when: "{{ use_cocogitto }}"

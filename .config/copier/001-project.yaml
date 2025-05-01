@@ -1,0 +1,10 @@
+---
+project_name:
+  type: str
+  help: project - Project name
+project_short_description:
+  type: str
+  help: project - Project short description
+project_description:
+  type: str
+  help: project - Project description
