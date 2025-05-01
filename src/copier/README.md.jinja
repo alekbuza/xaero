@@ -1,6 +1,6 @@
-# `{{ project_name  }}` - {{ project_short_description }}
+# `{{ project_name  }}` - {{ project_short_description }} [![xaero][xaero-badge]][xaero-url]
 
-{% if use_github == "y" %}
+{% if use_github_codespaces %}
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/{{ github_owner }}/{{ github_repository_name }})
 {% endif %}
 
@@ -38,3 +38,6 @@ The repository is structured as follows:
 ## Documentation
 
 The full documentation is available in the [`doc/`](doc/) directory.
+
+[xaero-url]: https://github.com/alekbuza/xaero
+[xaero-badge]: https://img.shields.io/badge/monorepo-xaero-red?link=https%3A%2F%2Fgithub.com%2Falekbuza%2Fxaero
