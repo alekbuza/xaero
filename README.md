@@ -1,4 +1,8 @@
-# `XAERO` - Monorepo Meta-Structure [![xaero][xaero-badge]][xaero-url]
+# `XAERO` - Monorepo Meta-Structure
+
+[![xaero][xaero-badge]][xaero-url]
+[![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
+
 
 <div align="center">
   <h1>
