@@ -2,12 +2,10 @@
   "search.exclude": {
     "**/.git": true,
     "**/.DS_Store": true,
-    "**/.venv": true
   },
   "files.watcherExclude": {
     "**/.git": true,
     "**/.DS_Store": true,
-    "**/.venv": true
   },
   "editor.insertSpaces": true,
   "mise.configureExtensionsAutomatically": false

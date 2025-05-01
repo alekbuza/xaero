@@ -10,8 +10,8 @@ _subdirectory: "src/copier"
 !include ".config/copier/004-pre-commit.yaml"
 ---
 _skip_if_exists:
-    - .config/*
-    - bin/*
-    - doc/*
-    - .editorconfig
-    - .pre-commit-config.yaml
+  - .config/*
+  - bin/*
+  - doc/*
+  - .editorconfig
+  - .pre-commit-config.yaml

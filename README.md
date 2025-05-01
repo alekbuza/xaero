@@ -1,4 +1,4 @@
-# `XAERO` - Monorepo Meta-Structure
+# `XAERO` - Monorepo Meta-Structure [![xaero][xaero-badge]][xaero-url]
 
 <div align="center">
   <h1>
@@ -76,3 +76,6 @@ The repository is structured as follows:
 ## Documentation
 
 The full documentation is available in the [`doc/`](doc/) directory.
+
+[xaero-url]: https://github.com/alekbuza/xaero
+[xaero-badge]: https://img.shields.io/badge/monorepo-xaero-red?link=https%3A%2F%2Fgithub.com%2Falekbuza%2Fxaero
