@@ -15,7 +15,9 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/alekbuza/xaero)
 
-[![ci](https://github.com/alekbuza/xaero/actions/workflows/conventional-commits.yaml/badge.svg)](https://github.com/alekbuza/xaero/actions/workflows/conventional-commits.yaml)
+[![ci-conventional-commits](https://github.com/alekbuza/xaero/actions/workflows/ci-conventional-commits.yaml/badge.svg)](https://github.com/alekbuza/xaero/actions/workflows/ci-conventional-commits.yaml)
+[![ci-trivy](https://github.com/alekbuza/xaero/actions/workflows/ci-trivy.yaml/badge.svg)](https://github.com/alekbuza/xaero/actions/workflows/ci-trivy.yaml)
+[![pr-validate-conventional-title](https://github.com/alekbuza/xaero/actions/workflows/pr-validate-conventional-title.yaml/badge.svg)](https://github.com/alekbuza/xaero/actions/workflows/pr-validate-conventional-title.yaml)
 
 ## Table of Contents
 
