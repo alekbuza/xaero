@@ -18,13 +18,15 @@ post_package_bump_hooks = []
 [commit_types]
 
 [changelog]
-path = "CHANGELOG.md"
-template = "remote"
-remote = "github.com"
-repository = "xaero"
-owner = "alekbuza"
+path = "{{ cocogitto_changelog_path }}"
+template = "{{ cocogitto_changelog_template }}"
+remote = "{{ cocogitto_changelog_remote }}"
+repository = "{{ cocogitto_changelog_repository }}"
+owner = "{{ cocogitto_changelog_owner }}"
 authors = [
-    { username = "alekbuza", signature = "Aleksandar Buza" }
+{%- for item in cocogitto_changelog_authors %}
+    { username = "{{ item.username }}", signature = "{{ item.signature }}" }{% if not loop.last %},{% endif %}
+{%- endfor %}
 ]
 
 [bump_profiles]

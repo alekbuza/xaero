@@ -1,0 +1,22 @@
+---
+name: ci-trivy
+on: [push] # yamllint disable-line rule:truthy
+jobs:
+  trivy-fs-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aquasecurity/trivy-action@0.30.0 # https://github.com/aquasecurity/trivy-action
+        with:
+          cache: 'true'
+          output: trivy-report.json
+          format: json
+          scan-type: 'fs'
+          scan-ref: '.'
+          trivy-config: .config/trivy.yaml
+          exit-code: 0
+      - uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifactß
+        with:
+          name: trivy-report
+          path: trivy-report.json
+          retention-days: 30

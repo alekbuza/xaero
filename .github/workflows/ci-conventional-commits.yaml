@@ -1,15 +1,14 @@
 ---
-name: conventional-commits
+name: ci-conventional-commits
 on: [push] # yamllint disable-line rule:truthy
 jobs:
-  cog_check_job:
+  cog-check-job:
     runs-on: ubuntu-latest
-    name: check conventional commit compliance
     steps:
       - uses: actions/checkout@main
         with:
           fetch-depth: 0
-      - name: Conventional commits check
+      - name: Conventional Commits Check
         uses: cocogitto/cocogitto-action@v3
         with:
           release: true
