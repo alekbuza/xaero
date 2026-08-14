@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#MISE description="Render src/ onto this repository (template self-apply)"
+
+set -eu
+
+root="${MISE_PROJECT_ROOT:-.}"
+
+uv run copier copy \
+	--vcs-ref=HEAD \
+	--defaults \
+	--overwrite \
+	--data-file "${root}/.config/copier/self.yml" \
+	--exclude .gitignore \
+	--exclude src/.gitkeep \
+	--exclude bin/.gitkeep \
+	"$@" \
+	"${root}" "${root}"

@@ -1,0 +1,48 @@
+from_latest_tag = false
+ignore_merge_commits = false
+ignore_fixup_commits = true
+disable_changelog = false
+disable_bump_commit = false
+generate_mono_repository_global_tag = true
+generate_mono_repository_package_tags = true
+branch_whitelist = ["main"]
+skip_ci = "[skip ci]"
+skip_untracked = false
+
+pre_bump_hooks = [
+    "uv version {% raw %}{{version}}{% endraw %}",
+]
+
+post_bump_hooks = [
+    "git push origin main",
+    "git push origin {% raw %}{{version}}{% endraw %}",
+]
+
+pre_package_bump_hooks = [
+    "echo {% raw %}{{version}}{% endraw %} > .version",
+]
+
+post_package_bump_hooks = [
+    "git push origin main",
+    "git push origin {% raw %}{{package}}{% endraw %}-{% raw %}{{version}}{% endraw %}",
+]
+
+[git_hooks]
+
+[commit_types]
+
+[changelog]
+path = "{{ cocogitto_changelog_path }}"
+template = "{{ cocogitto_changelog_template }}"
+remote = "{{ cocogitto_changelog_remote }}"
+repository = "{{ cocogitto_changelog_repository }}"
+owner = "{{ cocogitto_changelog_owner }}"
+authors = [
+{%- for item in cocogitto_changelog_authors %}
+    { username = "{{ item.username }}", signature = "{{ item.signature }}" }{% if not loop.last %},{% endif %}
+{%- endfor %}
+]
+
+[bump_profiles]
+
+[monorepo]

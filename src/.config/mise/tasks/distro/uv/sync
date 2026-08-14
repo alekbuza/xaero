@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#MISE description="Install uv dependencies"
+
+uv sync

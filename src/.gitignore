@@ -1,0 +1,31 @@
+# editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# system files
+.DS_Store
+Thumbs.db
+
+# temporary and local files
+tmp/
+.local/
+
+# secrets
+.secrets/
+
+# github files
+github_conf/
+
+# mise
+mise.local.toml
+mise.*.local.toml

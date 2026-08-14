@@ -1,0 +1,17 @@
+---
+# Answers for rendering this template onto its own repository root.
+# Used by the `template:apply` mise task. Root-only: not part of `src/`.
+project_name: xaero
+project_short_description: structured repository skel
+project_description: Yet another repository structure.
+use_commit_check: true
+use_cocogitto: true
+use_pre_commit: true
+cocogitto_changelog_path: CHANGELOG.md
+cocogitto_changelog_template: remote
+cocogitto_changelog_remote: codeberg.org
+cocogitto_changelog_repository: xaero
+cocogitto_changelog_owner: alekbuza
+cocogitto_changelog_authors:
+  - username: alekbuza
+    signature: Aleksandar Buza

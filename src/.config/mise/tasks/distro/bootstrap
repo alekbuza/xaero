@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#MISE description="Bootstrap xaero"
+#MISE depends=["distro:uv:sync", "distro:pre-commit:install"]

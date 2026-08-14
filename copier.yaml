@@ -1,0 +1,58 @@
+---
+_subdirectory: src
+_exclude:
+  - "{% if _copier_operation == 'update' -%}src/.gitkeep{% endif %}"
+  - "{% if _copier_operation == 'update' -%}bin/.gitkeep{% endif %}"
+project_name:
+  type: str
+  help: project - Project name
+project_short_description:
+  type: str
+  help: project - Project short description
+project_description:
+  type: str
+  multiline: true
+  help: project - Project description
+use_commit_check:
+  type: bool
+  default: true
+  help: commit-check - Use commit-check?
+use_cocogitto:
+  type: bool
+  default: true
+  help: cocogitto - Use Cocogitto?
+cocogitto_changelog_path:
+  type: str
+  help: cocogitto:changelog - Path
+  default: CHANGELOG.md
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_template:
+  type: str
+  help: cocogitto:changelog - Template
+  default: remote
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_remote:
+  type: str
+  help: cocogitto:changelog - Remote
+  default: github.com
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_owner:
+  type: str
+  help: cocogitto:changelog - Owner
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_repository:
+  type: str
+  help: cocogitto:changelog - Repository
+  when: "{{ use_cocogitto }}"
+cocogitto_changelog_authors:
+  type: yaml
+  help: cocogitto:changelog - Authors
+  multiline: true
+  default:
+    - username: "alekbuza"
+      signature: "Aleksandar Buza"
+  when: "{{ use_cocogitto }}"
+use_pre_commit:
+  type: bool
+  default: true
+  help: pre-commit - Use pre-commit?

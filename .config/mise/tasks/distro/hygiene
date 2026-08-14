@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#MISE description="Code hygiene (pre-commit hooks)"
+
+uv run pre-commit run --all-files
