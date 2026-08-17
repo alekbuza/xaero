@@ -14,5 +14,7 @@ uv run copier copy \
 	--exclude .gitignore \
 	--exclude src/.gitkeep \
 	--exclude bin/.gitkeep \
+	--exclude doc/man/README.md \
+	--exclude doc/adr/README.md \
 	"$@" \
 	"${root}" "${root}"

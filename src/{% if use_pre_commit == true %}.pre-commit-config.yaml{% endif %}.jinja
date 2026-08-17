@@ -3,7 +3,7 @@ default_stages: [pre-commit]
 repos:
   # General Hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks.git
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: check-docstring-first
@@ -14,15 +14,27 @@ repos:
       - id: forbid-new-submodules
   # YAML Hooks
   - repo: https://github.com/google/yamlfmt.git
-    rev: v0.16.0
+    rev: v0.21.0
     hooks:
       - id: yamlfmt
         args: ['-conf', '.config/yamlfmt.yaml']
   - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.37.0
+    rev: v1.38.0
     hooks:
       - id: yamllint
         args: ['--strict', '-c', '.config/yamllint.yaml']
+  # Markdown Hooks
+  - repo: https://github.com/hukkin/mdformat
+    rev: 1.0.0
+    hooks:
+      - id: mdformat
+        args: ['--number']
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-frontmatter
+        # The MADR templates carry {PLACEHOLDER} frontmatter values that YAML
+        # round-tripping corrupts; they hold no tables and need no formatting.
+        exclude: ^(src/)?doc/adr/_index\.md$
   # Shell Hooks
   - repo: local
     hooks:
@@ -35,7 +47,7 @@ repos:
         require_serial: true
   # Git Hooks
   - repo: https://github.com/commit-check/commit-check
-    rev: v2.6.0
+    rev: v2.15.1
     hooks:
       - id: check-message
       - id: check-branch

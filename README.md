@@ -1,4 +1,4 @@
-# `xaero` - structured repository skel
+# `xaero` - meta-distribution of the foundational layer for projects
 
 [![xaero][xaero-badge]][xaero-url]
 [![commit-check](https://img.shields.io/badge/commit--check-enabled-brightgreen?logo=Git&logoColor=white&color=%232c9ccd)](https://github.com/commit-check/commit-check)
@@ -12,7 +12,97 @@
 
 ## Overview
 
-Yet another repository structure.
+`xaero` is a meta-distribution: the foundational layer - the base - that a project stands on,
+delivered as a [Copier](https://copier.readthedocs.io) template. It ships no application code and
+authors none of the tools it carries. What it distributes is the base itself - dev tools, tasks,
+environment, automation, documentation, and checks - curated, version-pinned, wired together, and
+upgradeable as a single unit.
+
+A project that starts from scratch spends its first days on decisions that have nothing to do with
+the problem it exists to solve - which formatter, which linter, how versions get pinned, what a
+commit message must look like, how a release is cut, where documentation lives. `xaero` answers
+those questions once, encodes the answers as configuration, and makes the result reusable.
+
+### What is in the box
+
+- **Dev tools** - a curated set pinned to exact versions in `.config/mise.toml` and locked per
+  platform in `mise.lock`; the Python side is declared in `pyproject.toml` and locked in `uv.lock`.
+- **Tasks** - the task runner surface under `.config/mise/tasks/`, this distribution's equivalent of
+  a `Makefile`. Tasks are namespaced `distro:` because the distribution owns them:
+  `mise run bootstrap` prepares a checkout, `mise run distro:hygiene` runs every check, and
+  `mise tasks` lists the rest.
+- **Environment** - the `[env]` block in `.config/mise.toml` puts `bin/` and `.venv/bin` on `PATH`,
+  so project-local executables and the virtualenv resolve with no activation step. `PATH` wiring is
+  what is configured today; `[env]` is where project variables belong when a project needs them.
+- **Automation** - `pre-commit` installed into the local git hooks so the checks run without being
+  remembered, `cocogitto` deriving the version bump, the changelog, and the tag from the commit
+  history, and `copier` carrying later revisions of the base into projects already generated from
+  it. No CI pipelines ship yet.
+- **Documentation** - `doc/man/` for manuals and `doc/adr/` for Architectural Decision Records
+  (MADR 4.0.0), each with an index and a stated rule for adding to it, so documentation has a place
+  before the first line of it is written.
+- **Checks** - the `pre-commit` suite: `yamllint` and `yamlfmt` for YAML, `mdformat` for Markdown,
+  `shellcheck` for the task scripts, and `commit-check` for commit messages and branch names, with
+  `EditorConfig` applying charset, line endings, and indentation in the editor beforehand.
+
+### Repeatable, upgradeable, customizable
+
+- **Repeatable** - every tool is pinned and every resolution is locked, so the same checkout yields
+  byte-identical tooling on every machine and in CI.
+- **Upgradeable** - a generated project records the answers it was built with in
+  `.copier-answers.yml`, and `copier update` carries later revisions of the base into it.
+  Improvements to the foundation reach existing projects, not only new ones.
+- **Customizable** - the template questionnaire decides what is rendered. `commit-check`,
+  `cocogitto`, and `pre-commit` are each opt-out, and the changelog metadata is answered per
+  project.
+
+### How the pieces connect
+
+The tools below are not merely listed; they are connected, so that each one's output is the next
+one's input.
+
+- **[Copier](https://copier.readthedocs.io)** - renders the base and carries later revisions of it
+  into projects that were already generated from it.
+- **[mise](https://mise.jdx.dev)** - pins every tool to an exact version, locks the resolved
+  artifacts per platform, and doubles as the task runner.
+- **[uv](https://docs.astral.sh/uv/)** - resolves, locks, and installs the Python side of the
+  toolchain.
+- **Python** - the runtime the Python-based tooling needs; the base itself is language-neutral.
+- **[pre-commit](https://pre-commit.com)** - the execution point for every check below, installed
+  into the local git hooks.
+- **[commit-check](https://github.com/commit-check/commit-check)** - enforces Conventional Commits
+  and conventional branch names before a commit is ever pushed.
+- **[cocogitto](https://docs.cocogitto.io)** - reads those conventional commits and derives the
+  version bump, the changelog, and the tag from them.
+- **[EditorConfig](https://editorconfig.org)** - charset, line endings, and indentation, applied in
+  the editor before any hook runs.
+- **[yamlfmt](https://github.com/google/yamlfmt)** and
+  **[yamllint](https://yamllint.readthedocs.io)** - formatting and strict linting for the YAML that
+  most of this configuration is written in.
+- **[shellcheck](https://www.shellcheck.net)** - static analysis for the shell scripts behind the
+  task runner.
+- **[trivy](https://trivy.dev)**, **[cosign](https://docs.sigstore.dev/cosign/)**, and
+  **[slsa-verifier](https://github.com/slsa-framework/slsa-verifier)** - pinned and installed,
+  staged for the supply-chain scanning and provenance workflow.
+
+### Dogfooding
+
+`xaero` is simultaneously the template and an instance of itself. `copier.yaml` declares
+`_subdirectory: src`, so `src/` is the tree rendered into generated projects while the repository
+root is that same tree already rendered. Re-applying the template onto the root must produce no
+changes at all - that invariant is the project's only test, and it means a change that would break
+generated projects breaks `xaero` first.
+
+### The tool set is not permanent
+
+The list above is the current answer, not a final one. Tools are expected to be added, swapped,
+reconfigured, or dropped as the ecosystem moves - which is exactly why they are distributed behind
+a template with recorded answers instead of being copy-pasted into every project. What stays stable
+is the procedure for changing them: record the decision as an ADR, gate it behind a template
+question if it is optional, change the root and the template tree together, and verify by
+re-rendering.
+
+Full documentation lives in [`doc/man/XAERO.md`](doc/man/XAERO.md).
 
 ## Contributing
 
@@ -22,5 +112,5 @@ Yet another repository structure.
 
 The full documentation is available in the [`doc/`](doc/) directory.
 
-[xaero-url]: https://codeberg.org/alekbuza/xaero
 [xaero-badge]: https://img.shields.io/badge/repo-xaero-red?link=https%3A%2F%2Fcodeberg.org%2Falekbuza%2Fxaero
+[xaero-url]: https://codeberg.org/alekbuza/xaero

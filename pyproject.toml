@@ -1,7 +1,7 @@
 [project]
 name = "xaero"
 version = "0.1.0"
-description = "structured repository skel"
+description = "meta-distribution of the foundational layer for projects"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
