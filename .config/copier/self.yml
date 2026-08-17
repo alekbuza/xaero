@@ -2,7 +2,7 @@
 # Answers for rendering this template onto its own repository root.
 # Used by the `copier:apply` mise task. Root-only: not part of `src/`.
 project_name: xaero
-project_short_description: meta-distribution of the foundational layer for projects
+project_short_description: project meta-distribution
 project_description: |-
   `xaero` is a meta-distribution: the foundational layer - the base - that a project stands on,
   delivered as a [Copier](https://copier.readthedocs.io) template. It ships no application code and

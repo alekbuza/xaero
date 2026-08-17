@@ -1,4 +1,4 @@
-# `xaero` - meta-distribution of the foundational layer for projects
+# `xaero` - project meta-distribution
 
 [![xaero][xaero-badge]][xaero-url]
 [![commit-check](https://img.shields.io/badge/commit--check-enabled-brightgreen?logo=Git&logoColor=white&color=%232c9ccd)](https://github.com/commit-check/commit-check)
