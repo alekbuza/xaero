@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.1.1](https://codeberg.org/alekbuza/xaero/compare/f75cf57747f3e5b11fb1671f3ca85b484838d5c3..0.1.1) - 2026-08-17
+#### Bug Fixes
+- update project short description - ([f75cf57](https://codeberg.org/alekbuza/xaero/commit/f75cf57747f3e5b11fb1671f3ca85b484838d5c3)) - alekbuza
+
+- - -
+
 ## [0.1.0](https://codeberg.org/alekbuza/xaero/compare/dc86df05c0be5a6bcdedadc78f9fea283166b30e..0.1.0) - 2026-08-17
 #### Features
 - update meta skel - ([85d1cc8](https://codeberg.org/alekbuza/xaero/commit/85d1cc8aa9aa04592bbdf7fe20f4807e58df6aa4)) - alekbuza
