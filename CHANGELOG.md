@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.2.0](https://codeberg.org/alekbuza/xaero/compare/3fe0fe3d3249bef78f71e7f8798763ce39aba7f3..0.2.0) - 2026-08-21
+#### Features
+- (**mise**) add mise distro tasks - ([3fe0fe3](https://codeberg.org/alekbuza/xaero/commit/3fe0fe3d3249bef78f71e7f8798763ce39aba7f3)) - alekbuza
+
+- - -
+
 ## [0.1.2](https://codeberg.org/alekbuza/xaero/compare/7bbfe5d070ab6a3f9367f710f117531bc3713050..0.1.2) - 2026-08-21
 #### Bug Fixes
 - update pre-commit and fix markdown in docs - ([7bbfe5d](https://codeberg.org/alekbuza/xaero/commit/7bbfe5d070ab6a3f9367f710f117531bc3713050)) - alekbuza
