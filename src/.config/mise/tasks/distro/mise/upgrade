@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#MISE description="Update mise tools"
+
+mise upgrade --bump --interactive --local
