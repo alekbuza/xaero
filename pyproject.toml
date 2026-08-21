@@ -1,6 +1,6 @@
 [project]
 name = "xaero"
-version = "0.2.1"
+version = "0.1.0"
 description = "project meta-distribution"
 readme = "README.md"
 requires-python = ">=3.14"
