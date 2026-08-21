@@ -12,7 +12,7 @@ The positioning is recorded in
 Related documents:
 
 - [`USAGE.md`](USAGE.md) - the command-level cheat sheet.
-- [`../adr/`](../adr/) - Architectural Decision Records (MADR 4.0.0).
+- [`adr/`](../adr/) - Architectural Decision Records (MADR 4.0.0).
 
 ## Table of Contents
 

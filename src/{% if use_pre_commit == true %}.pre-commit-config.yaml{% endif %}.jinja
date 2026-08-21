@@ -32,8 +32,6 @@ repos:
         additional_dependencies:
           - mdformat-gfm
           - mdformat-frontmatter
-        # The MADR templates carry {PLACEHOLDER} frontmatter values that YAML
-        # round-tripping corrupts; they hold no tables and need no formatting.
         exclude: ^(src/)?doc/adr/_index\.md$
   # Shell Hooks
   - repo: local
