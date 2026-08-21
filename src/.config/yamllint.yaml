@@ -3,6 +3,8 @@ yaml-files:
   - "*.yaml"
   - "*.yml"
   - ".yamllint"
+ignore:
+  - .copier-answers.yml
 rules:
   anchors: enable
   braces: enable
