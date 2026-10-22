@@ -10,7 +10,7 @@ project_short_description:
   type: str
   help: project - Project short description
 project_description:
-  type: yaml
+  type: str
   multiline: true
   help: project - Project description
 use_commit_check:

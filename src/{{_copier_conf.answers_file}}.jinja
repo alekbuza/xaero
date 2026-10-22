@@ -1,2 +1,6 @@
 # Changes here will be overwritten by Copier
-{{ _copier_answers|to_nice_yaml -}}
+{% for key, value in _copier_answers|dictsort if key != 'project_description' -%}
+{{ {key: value}|to_nice_yaml -}}
+{% endfor -%}
+project_description: |-
+{{ project_description|indent(4, first=True) }}
