@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.2.6](https://codeberg.org/alekbuza/xaero/compare/cf10b64b666177cee24e5ea70706261b5bfc8916..0.2.6) - 2026-11-23
+#### Bug Fixes
+- apply mdformat rules - ([5ab2b22](https://codeberg.org/alekbuza/xaero/commit/5ab2b2282058779f8658ba4af1ad8b8378ac2982)) - alekbuza
+- add missing mdformat config - ([9d63da7](https://codeberg.org/alekbuza/xaero/commit/9d63da777c21c98919ded8c0c31c6136367771c7)) - alekbuza
+#### Miscellaneous Chores
+- add missing mdformat package - ([5f44726](https://codeberg.org/alekbuza/xaero/commit/5f44726aedbb98aeb3e5b44630fa8c125bd0148d)) - alekbuza
+- update mise tools - ([cf10b64](https://codeberg.org/alekbuza/xaero/commit/cf10b64b666177cee24e5ea70706261b5bfc8916)) - alekbuza
+
+- - -
+
 ## [0.2.5](https://codeberg.org/alekbuza/xaero/compare/10aa2c1fd2816973f4715e1ef981162556a02894..0.2.5) - 2026-10-22
 #### Bug Fixes
 - update project description answer type - ([10aa2c1](https://codeberg.org/alekbuza/xaero/commit/10aa2c1fd2816973f4715e1ef981162556a02894)) - alekbuza
