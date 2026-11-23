@@ -11,4 +11,5 @@ dev = [
     "commit-check>=2.6.1",
     "pre-commit>=4.6.0",
     "copier>=9.15.1",
+    "mdformat>=1.0.0",
 ]
