@@ -1,0 +1,11 @@
+# .mdformat.toml
+
+wrap = "keep"
+number = false
+end_of_line = "lf"
+validate = true
+
+exclude = [
+  "CHANGELOG.md",
+  "**/CHANGELOG.md"
+]
