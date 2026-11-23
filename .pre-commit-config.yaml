@@ -32,7 +32,6 @@ repos:
         additional_dependencies:
           - mdformat-gfm
           - mdformat-frontmatter
-        exclude: ^(src/)?doc/adr/_index\.md$
   # Shell Hooks
   - repo: local
     hooks:

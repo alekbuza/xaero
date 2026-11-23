@@ -9,3 +9,6 @@ exclude = [
   "CHANGELOG.md",
   "**/CHANGELOG.md"
 ]
+
+[plugin.tables]
+compact_tables = false
