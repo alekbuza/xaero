@@ -33,7 +33,6 @@ upgradeable as a single unit.
 
 - **Repeatable** - every tool is pinned and every resolution is locked.
 - **Upgradeable** - `copier update` carries later revisions into existing projects.
-- **Customizable** - `commit-check`, `cocogitto`, and `pre-commit` are each opt-out.
 
 Full documentation lives in [`doc/man/XAERO.md`](doc/man/XAERO.md).
 

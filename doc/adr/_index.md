@@ -1,11 +1,8 @@
----
+______________________________________________________________________
+
 # These are optional metadata elements. Feel free to remove any of them.
-status: "{proposed | rejected | accepted | deprecated | ... | superseded by ADR-0123}"
-date: {YYYY-MM-DD when the decision was last updated: null}
-decision-makers: {list everyone involved in the decision: null}
-consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication: null}
-informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication: null}
----
+
+## status: "{proposed | rejected | accepted | deprecated | ... | superseded by ADR-0123}" date: {YYYY-MM-DD when the decision was last updated} decision-makers: {list everyone involved in the decision} consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication} informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
 
 # {short title, representative of solved problem and found solution}
 

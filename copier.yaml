@@ -5,54 +5,40 @@ _exclude:
   - "{% if _copier_operation == 'update' -%}bin/.gitkeep{% endif %}"
 project_name:
   type: str
-  help: project - Project name
+  help: project - Project name (PEP 508)
+  validator: >-
+    {% if not (project_name | regex_search('^([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9._-]*[A-Za-z0-9])$')) %} Must be a valid PEP 508 name: ASCII letters, digits, '.', '_' and '-', starting and ending with a letter or digit. {% endif %}
 project_short_description:
   type: str
   help: project - Project short description
+  validator: "{% if not project_short_description | trim %}Must not be empty.{% endif %}"
 project_description:
   type: str
   multiline: true
   help: project - Project description
-use_commit_check:
-  type: bool
-  default: true
-  help: commit-check - Use commit-check?
-use_cocogitto:
-  type: bool
-  default: true
-  help: cocogitto - Use Cocogitto?
 cocogitto_changelog_path:
   type: str
   help: cocogitto:changelog - Path
   default: CHANGELOG.md
-  when: "{{ use_cocogitto }}"
 cocogitto_changelog_template:
   type: str
   help: cocogitto:changelog - Template
   default: remote
-  when: "{{ use_cocogitto }}"
 cocogitto_changelog_remote:
   type: str
   help: cocogitto:changelog - Remote
   default: github.com
-  when: "{{ use_cocogitto }}"
 cocogitto_changelog_owner:
   type: str
   help: cocogitto:changelog - Owner
-  when: "{{ use_cocogitto }}"
+  validator: "{% if not cocogitto_changelog_owner | trim %}Must not be empty.{% endif %}"
 cocogitto_changelog_repository:
   type: str
   help: cocogitto:changelog - Repository
-  when: "{{ use_cocogitto }}"
+  default: "{{ project_name }}"
+  validator: "{% if not cocogitto_changelog_repository | trim %}Must not be empty.{% endif %}"
 cocogitto_changelog_authors:
   type: yaml
   help: cocogitto:changelog - Authors
   multiline: true
-  default:
-    - username: "alekbuza"
-      signature: "Aleksandar Buza"
-  when: "{{ use_cocogitto }}"
-use_pre_commit:
-  type: bool
-  default: true
-  help: pre-commit - Use pre-commit?
+  default: []

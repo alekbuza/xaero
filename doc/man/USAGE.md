@@ -26,6 +26,8 @@ The task wraps `copier copy` with the answers in `.config/copier/self.yml`. Note
   intentional root-only ignore entries survive and no stray `.gitkeep` lands inside `src/`.
 - `doc/man/README.md` is excluded too: its root copy indexes `XAERO.md` and `USAGE.md`, which are
   root-only, so the template ships the same document with an empty index instead.
+- `CONTRIBUTING.md` is excluded as well: the root copy is xaero's own guide, while `src/` ships the
+  generated project's.
 - The generated `.copier-answers.yml` is gitignored at the root; `.config/copier/self.yml` is the
   source of truth for the answers.
 

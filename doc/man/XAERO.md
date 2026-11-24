@@ -89,8 +89,8 @@ And three properties the base is expected to hold:
   byte-identical tooling on every machine and in CI.
 - **Upgradeable.** A generated project records its answers in `.copier-answers.yml`; `copier update`
   carries later revisions of the base into it.
-- **Customizable.** The questionnaire decides what is rendered - `commit-check`, `cocogitto`, and
-  `pre-commit` are each opt-out, and the changelog metadata is answered per project.
+- **Opinionated.** `commit-check`, `cocogitto`, and `pre-commit` are part of the base in every
+  project, not options; only the project and changelog metadata are answered per project.
 
 ## Design principles
 
@@ -290,19 +290,16 @@ The single rule that governs every change in this repository:
 
 > A change to a root file must be mirrored into its `src/` counterpart, and vice versa.
 
-| Root                                                      | Template source under `src/`                                              |
-| --------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `.pre-commit-config.yaml`                                 | `{% if use_pre_commit == true %}.pre-commit-config.yaml{% endif %}.jinja` |
-| `cog.toml`                                                | `{% if use_cocogitto == true %}cog.toml{% endif %}.jinja`                 |
-| `cchk.toml`                                               | `{% if use_commit_check == true %}cchk.toml{% endif %}.jinja`             |
-| `pyproject.toml`, `README.md`                             | `pyproject.toml.jinja`, `README.md.jinja`                                 |
-| `.config/**`, `.editorconfig`, `.gitignore`, `doc/adr/**` | the same path under `src/`, copied verbatim                               |
+| Root                                                      | Template source under `src/`                |
+| --------------------------------------------------------- | ------------------------------------------- |
+| `.pre-commit-config.yaml`                                 | `.pre-commit-config.yaml.jinja`             |
+| `cog.toml`                                                | `cog.toml.jinja`                            |
+| `cchk.toml`                                               | `cchk.toml.jinja`                           |
+| `pyproject.toml`, `README.md`                             | `pyproject.toml.jinja`, `README.md.jinja`   |
+| `.config/**`, `.editorconfig`, `.gitignore`, `doc/adr/**` | the same path under `src/`, copied verbatim |
 
-Three mechanics make this work:
+Two mechanics make this work:
 
-- **Conditional filenames.** A filename of the form `{% if use_x == true %}name{% endif %}.jinja`
-  renders to an empty name when the answer is `false`, and Copier skips empty filenames. That is how
-  an optional tool's config disappears entirely from a project that opted out.
 - **`.jinja` suffix.** Files ending in `.jinja` have their contents rendered, so answer variables
   (`{{ project_name }}`, `{{ cocogitto_changelog_owner }}`, ...) get substituted. Files without the
   suffix are copied byte-for-byte.
@@ -314,20 +311,21 @@ Three mechanics make this work:
 
 Defined in `copier.yaml`:
 
-| Question                         | Type             | Default        | Asked when      |
-| -------------------------------- | ---------------- | -------------- | --------------- |
-| `project_name`                   | str              | -              | always          |
-| `project_short_description`      | str              | -              | always          |
-| `project_description`            | str (multiline)  | -              | always          |
-| `use_commit_check`               | bool             | `true`         | always          |
-| `use_cocogitto`                  | bool             | `true`         | always          |
-| `cocogitto_changelog_path`       | str              | `CHANGELOG.md` | `use_cocogitto` |
-| `cocogitto_changelog_template`   | str              | `remote`       | `use_cocogitto` |
-| `cocogitto_changelog_remote`     | str              | `github.com`   | `use_cocogitto` |
-| `cocogitto_changelog_owner`      | str              | -              | `use_cocogitto` |
-| `cocogitto_changelog_repository` | str              | -              | `use_cocogitto` |
-| `cocogitto_changelog_authors`    | yaml (multiline) | one entry      | `use_cocogitto` |
-| `use_pre_commit`                 | bool             | `true`         | always          |
+| Question                         | Type             | Default              | Validation   |
+| -------------------------------- | ---------------- | -------------------- | ------------ |
+| `project_name`                   | str              | -                    | PEP 508 name |
+| `project_short_description`      | str              | -                    | non-empty    |
+| `project_description`            | str (multiline)  | -                    | -            |
+| `cocogitto_changelog_path`       | str              | `CHANGELOG.md`       | -            |
+| `cocogitto_changelog_template`   | str              | `remote`             | -            |
+| `cocogitto_changelog_remote`     | str              | `github.com`         | -            |
+| `cocogitto_changelog_owner`      | str              | -                    | non-empty    |
+| `cocogitto_changelog_repository` | str              | `{{ project_name }}` | non-empty    |
+| `cocogitto_changelog_authors`    | yaml (multiline) | `[]`                 | -            |
+
+`project_name` is also the package name in `pyproject.toml`, so it must be a valid
+[PEP 508](https://peps.python.org/pep-0508/#names) name: ASCII letters, digits, `.`, `_`, and `-`,
+starting and ending with a letter or digit.
 
 `project_short_description` becomes the README heading suffix and `pyproject.toml`'s `description`;
 `project_description` is injected as the README's Overview section, so it may contain Markdown - but
@@ -356,6 +354,8 @@ These are correct as they stand and must not be "fixed":
 - `doc/man/README.md` exists on both sides with different content: the root copy indexes the two
   root-only manuals above, while the template copy ships the same prose with an empty index. It is
   therefore excluded from `copier:apply`, alongside the root `.gitignore`.
+- `CONTRIBUTING.md` exists on both sides and is excluded from `copier:apply`: the root copy covers
+  contributing to xaero itself, while the template copy is the generated project's own guide.
 - `doc/adr/README.md` likewise diverges by its index only. ADR 0000 (Use MADR) is a genuine convention
   and ships to generated projects, so the template copy lists it; ADR 0001 records xaero's own
   positioning and is root-only, so only the root copy lists it. Excluded from `copier:apply` for the
@@ -457,12 +457,12 @@ projects can absorb the change without surprises:
    fill the frontmatter and the Context / Considered Options / Decision Outcome sections, then add a
    row to the index table in `doc/adr/README.md`). Adding, replacing, or removing a tool is exactly
    the kind of decision ADRs exist for.
-2. **Decide whether it is optional.** If downstream projects should be able to opt out, add a
-   `use_<tool>` question to `copier.yaml` and gate the config file with a conditional filename. If it
-   is mandatory, no question is needed.
+2. **Make it part of the base.** Tools are not optional: every generated project gets the full set.
+   Only add a question to `copier.yaml` when the tool needs per-project metadata (as cocogitto's
+   changelog does), never as an opt-out switch.
 3. **Change both trees together.** Root and `src/` in the same commit. Removing a tool means removing
    its pin from `.config/mise.toml` *and* `src/.config/mise.toml`, its hook from both pre-commit
-   configs, its config file from both trees, and its question from `copier.yaml`.
+   configs, its config file from both trees, and any of its questions from `copier.yaml`.
 4. **Update the tasks.** If the tool has an entry point, add or retire the corresponding file-task
    under `.config/mise/tasks/` - and its `src/` mirror.
 5. **Update the documentation.** The toolchain table in this file is normative; keep it accurate,

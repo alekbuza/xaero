@@ -16,5 +16,6 @@ uv run copier copy \
 	--exclude bin/.gitkeep \
 	--exclude doc/man/README.md \
 	--exclude doc/adr/README.md \
+	--exclude CONTRIBUTING.md \
 	"$@" \
 	"${root}" "${root}"
