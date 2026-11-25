@@ -1,9 +1,13 @@
 # .mdformat.toml
 
 wrap = "keep"
-number = false
+number = true
 end_of_line = "lf"
 validate = true
+
+# Fail instead of silently skipping a missing plugin
+# (without "frontmatter", YAML front matter gets mangled).
+extensions = ["gfm", "tables", "frontmatter"]
 
 exclude = [
   "CHANGELOG.md",
