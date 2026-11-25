@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## [0.3.1](https://codeberg.org/alekbuza/xaero/compare/e315606c8cd58716394abab35c3d74333b43c36a..0.3.1) - 2026-11-25
+#### Bug Fixes
+- update mdformat config - ([e315606](https://codeberg.org/alekbuza/xaero/commit/e315606c8cd58716394abab35c3d74333b43c36a)) - alekbuza
+
+- - -
+
 ## [0.3.0](https://codeberg.org/alekbuza/xaero/compare/c519070bf7edef44a31f71bb8f96281c246efcfe..0.3.0) - 2026-11-24
 #### Features
 - update template logic and docs - ([c519070](https://codeberg.org/alekbuza/xaero/commit/c519070bf7edef44a31f71bb8f96281c246efcfe)) - alekbuza
